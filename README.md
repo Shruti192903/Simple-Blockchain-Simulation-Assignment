@@ -1,4 +1,4 @@
-# Simple Blockchain Simulation
+# Simple Blockchain Simulation Assignment
 
 ## Overview
 
