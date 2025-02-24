@@ -21,15 +21,15 @@ This project simulates a basic blockchain with core features like block creation
 1.  **Clone the repository:**
 
     ```
-    git clone https://github.com/rohitd2103/Simple-Blockchain-Simulation-Assignment-Task-
-    cd Simple-Blockchain-Simulation-Assignment-Task-
+    git clone [https://github.com/Shruti192903/Simple-Blockchain-Simulation-Assignment]
+    cd Simple-Blockchain-Simulation-Assignment
     ```
 
     The repository URL for cloning is:
 
-    `https://github.com/rohitd2103/Simple-Blockchain-Simulation-Assignment-Task-`
+    `https://github.com/Shruti192903/Simple-Blockchain-Simulation-Assignment`
 
-2.  **Run the Blockchain Script:**
+3.  **Run the Blockchain Script:**
 
     ```
     python blockchain_simulation.py
