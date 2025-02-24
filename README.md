@@ -56,16 +56,11 @@ This project simulates a basic blockchain with core features like block creation
 
 ## Docker Setup
 
-To build and run the Docker image:
-
-1. **Build Docker Image:**
+**Build Docker Image:**
    ```
    docker build -t blockchain-simulation
    ```
-2. **Run Docker Container:**
-    ```
-    docker run blockchain-simulation
-    ```
+
 
 **Output:**
 ![Blockchain Simulation Output](Output.png)
