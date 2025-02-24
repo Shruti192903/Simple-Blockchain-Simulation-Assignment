@@ -66,5 +66,10 @@ To build and run the Docker image:
     ```
     docker run blockchain-simulation
     ```
-    
-[GitHub Profile](https://github.com/Shruti192903)
+
+**Output:**
+![Blockchain Simulation Output](Output.png)
+
+##
+
+
