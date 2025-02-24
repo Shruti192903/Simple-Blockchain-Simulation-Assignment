@@ -19,7 +19,7 @@ This project simulates a basic blockchain with core features like block creation
 ## Setup and Execution
 
 1. **Clone the Repository**:
-  [Git Clone]([https://example.com](https://github.com/your-username/simple-blockchain-simulation.git))
+  https://github.com/Shruti192903/Simple-Blockchain-Simulation-Assignment
 
 
 
