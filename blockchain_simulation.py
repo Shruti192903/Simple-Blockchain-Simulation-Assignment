@@ -2,6 +2,8 @@ import hashlib
 import time
 import json
 import datetime
+from rich.text import Text
+from rich import print
 
 # Defined a class to represent a block in the blockchain
 class LedgerEntry:
@@ -74,20 +76,29 @@ class DistributedLedger:
             previous_block = self.chain[i - 1]
 
             if current_block.hash != current_block.calculate_hash():
-                print(f"Block {current_block.entry_id} hash is invalid!")
+                print(f"[green]Block {current_block.entry_id} hash is invalid![/green]")
                 return False
 
             if current_block.previous_identifier != previous_block.hash:
-                print(f"Block {current_block.entry_id} previous identifier mismatch!")
+                print(f"[green]Block {current_block.entry_id} previous identifier mismatch![/green]")
                 return False
 
         return True
 
     def print_chain(self):
-        # Print the details of each block in the blockchain
+    # Print the details of each block in the blockchain
+        print("\n**Blockchain Details:**")
+        print("---------------------------")
         for block in self.chain:
-            readable_time = datetime.datetime.fromtimestamp(block.timestamp).strftime('%Y-%m-%d %H:%M:%S') # Convert timestamp to human-readable format
-            print(f"Block {block.entry_id} [Hash: {block.hash}, Previous Identifier: {block.previous_identifier}, Data Records: {block.data_records}, Timestamp: {readable_time}, Iteration Counter: {block.iteration_counter}]")
+            readable_time = datetime.datetime.fromtimestamp(block.timestamp).strftime('%Y-%m-%d %H:%M:%S') # Converts timestamp to human-readable format
+            block_text = Text(f"**Block {block.entry_id}:**", style="blue")
+            print(block_text)
+            print(f"  - **Hash:** {block.hash}")
+            print(f"  - **Previous Identifier:** {block.previous_identifier}")
+            print(f"  - **Data Records:** {block.data_records}")
+            print(f"  - **Timestamp:** {readable_time}")
+            print(f"  - **Nonce:** {block.iteration_counter}")
+            print("---------------------------")
 
 if __name__ == "__main__":
     my_distributed_ledger = DistributedLedger()
@@ -95,26 +106,27 @@ if __name__ == "__main__":
     # Get user input for the number of blocks to mine
     num_blocks_to_mine = int(input("Enter the number of blocks to mine: "))
 
+    print("\n**Mining Blocks:**")
     for i in range(num_blocks_to_mine):
         print(f"\nAdding data records and mining block {i + 1}...")
         my_distributed_ledger.add_data_record(f"Data Record {i + 1}")
         my_distributed_ledger.mine_pending_data_records()
 
-    print("\nBlockchain:")
+    print("\n**Blockchain Before Tampering:**")
     my_distributed_ledger.print_chain()
 
-    print("\nIs blockchain valid?", my_distributed_ledger.validate_chain_integrity())
+    print(f"\n**Is Blockchain Valid?** {my_distributed_ledger.validate_chain_integrity()}")
 
     # Get user input for the block to tamper with
     block_to_tamper = int(input("\nEnter the block index to tamper with (1 to {}): ".format(num_blocks_to_mine)))
 
     if 1 <= block_to_tamper <= num_blocks_to_mine:
-        print(f"\nTampering with block {block_to_tamper}...")
+        print(f"\n**Tampering with Block {block_to_tamper}...**")
         my_distributed_ledger.chain[block_to_tamper].data_records = ["Tampered Data Record"]
     else:
         print("Invalid block index!")
 
-    print("\nBlockchain after tampering:")
+    print("\n**Blockchain After Tampering:**")
     my_distributed_ledger.print_chain()
 
-    print("\nIs blockchain valid after tampering?", my_distributed_ledger.validate_chain_integrity())
+    print(f"\n**Is Blockchain Valid After Tampering?** {my_distributed_ledger.validate_chain_integrity()}")
