@@ -62,7 +62,7 @@ This project simulates a basic blockchain with core features like block creation
    ```
 
 
-**Output:**
+## Output:
 ![Blockchain Simulation Output](Output.png)
 
 ##
