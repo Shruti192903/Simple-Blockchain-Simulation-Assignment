@@ -126,7 +126,12 @@ if __name__ == "__main__":
     else:
         print("Invalid block index!")
 
+<<<<<<< HEAD
     print("\n**Blockchain After Tampering:**")
+=======
+    print("\nBlockchain after tampering:")
+    
+>>>>>>> 3246e2643ad7e1a271fdc2bb1a9add2de9264f28
     my_distributed_ledger.print_chain()
 
     print(f"\n**Is Blockchain Valid After Tampering?** {my_distributed_ledger.validate_chain_integrity()}")
